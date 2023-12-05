@@ -65,7 +65,7 @@ An agent trained using the maximum entropy RL objective explores both passages d
 
 The entropy of a random variable is given by, $H(X) = \underset{x \sim P}{\mathbb{E}}[-\log P(x)] $. Thus, we define the maximum entropy RL objective as,
 $$
-\pi^{\*} = \underset{\pi}{\arg\max} \underset{\tau \sim \pi}{\mathbb{E}} \big[\sum_{t=0}^{\infty}\gamma^{t}\big(\;r(s_{t},a_{t},s_{t+1})+\alpha H(\pi(\cdot|s_{t}))\;\big)\big]
+\pi^{*} = \underset{\pi}{\arg\max} \underset{\tau \sim \pi}{\mathbb{E}} \big[\sum_{t=0}^{\infty}\gamma^{t}\big(\;r(s_{t},a_{t},s_{t+1})+\alpha H(\pi(\cdot|s_{t}))\;\big)\big]
 \\]
 
 Here, $\alpha > 0$, is the weightage given to the entropy term in the objective. $\alpha$ is also referred to as the "temperature". We define the value function to include the entropy from every timestep,
