@@ -82,20 +82,20 @@ h3 {
 
 h1:before {
     counter-increment: h1;
-    content: counter(h1) ". "
+    content: ""
 }
 
 h2:before {
     counter-increment: h2;
-    content: counter(h1) "." counter(h2) ". "
+    content: ""
 }
 
 h3:before {
     counter-increment: h3;
-    content: counter(h1) "." counter(h2) "." counter(h3) ". "
+    content: counter(h3) 
 }
 
 h4:before {
     counter-increment: h4;
-    content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". "
+    content: counter(h3) "." counter(h4) ". "
 }
