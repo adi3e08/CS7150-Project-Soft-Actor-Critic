@@ -45,43 +45,42 @@
 <div class="row">
 <div class="col justify-content-center text-center">
 <h2>An Analysis of Soft Actor-Critic</h2>
-Soft Actor-Critic (SAC) [1] is a state-of-the-art model-free RL algorithm for continuous action spaces. It adopts an off-policy actor-critic approach and uses stochastic policies. It uses the maximum entropy formulation to achieve better exploration.
+<p> Soft Actor-Critic (SAC) [1] is a state-of-the-art model-free RL algorithm for continuous action spaces. It adopts an off-policy actor-critic approach and uses stochastic policies. It uses the maximum entropy formulation to achieve better exploration. </p>
 </div>
 </div>
 <div class="row">
 <div class="col">
-</div><!--col-->
-</div><!--row -->
-</div> <!-- container -->
 
 <!-- <h2>Literature Review; Biography; Social Impact; Industry Applications; Follow-on Research; and Peer-Review</h2> -->
 
-### Related Work
-
-The related work section of the paper "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" by Haarnoja et al. discusses several key themes in reinforcement learning literature:
-
-1. Actor-Critic Frameworks: The section reviews the derivation of actor-critic algorithms from policy iteration, referencing foundational works such as Barto and Sutton's "Neuronlike Adaptive Elements That Can Solve Difficult Learning Control Problems" (1983). Many actor-critic algorithms, like those discussed by Peters et al. (2008), use on-policy policy gradient formulations for actor updates, and some incorporate entropy as a regularizer, as seen in works like Schulman et al.'s "Proximal Policy Optimization Algorithms" (2017).
-2. Off-Policy Training: The challenges of on-policy training in large-scale reinforcement learning problems are discussed, and the paper references efforts to enhance sample efficiency through off-policy samples and higher-order variance reduction techniques. Lillicrap et al.'s "Continuous Control with Deep Reinforcement Learning" (2015) is mentioned as an example, highlighting challenges with its stability and sensitivity to hyperparameter settings.
-3. Maximum Entropy Reinforcement Learning: The paper introduces the concept of maximum entropy reinforcement learning, citing applications in inverse reinforcement learning (Ziebart et al., "Maximum Entropy Inverse Reinforcement Learning" - 2008) and optimal control (Todorov - 2008; Toussaint - 2009; Rawlik et al. - 2012). The idea of using maximum entropy to guide policy learning in guided policy search (Levine et al. - 2013, 2016) is also discussed.
-4. Connection between Q-learning and Policy Gradient Methods: The authors highlight recent papers that explore the connection between Q-learning and policy gradient methods in the context of maximum entropy learning. Works by O'Donoghue et al. ("The PGQ Algorithm" - 2016), Haarnoja et al. ("Reinforcement Learning with Deep Energy-Based Policies" - 2017), Nachum et al. ("Bridging the Gap Between Value and Policy Based Reinforcement Learning" - 2017), and Schulman et al. ("Equivalence Between Policy Gradients and Soft Q-Learning" - 2017) are referenced.
-5. Comparison with Prior Maximum Entropy Methods: The section notes that prior maximum entropy methods, such as those approximating the maximum entropy distribution with a Gaussian (Nachum et al. - 2017) or using a sampling network (Haarnoja et al. - 2017), generally do not outperform state-of-the-art off-policy algorithms like DDPG. The authors emphasize that their proposed Soft Actor-Critic algorithm surpasses the performance of prior off-policy methods in terms of both efficiency and final results.
-
+<h3>Related Work</h3>
+<p>The related work section of the paper "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" by Haarnoja et al. discusses several key themes in reinforcement learning literature:
+</p>
+<ol>
+ <li> Actor-Critic Frameworks: The section reviews the derivation of actor-critic algorithms from policy iteration, referencing foundational works such as Barto and Sutton's "Neuronlike Adaptive Elements That Can Solve Difficult Learning Control Problems" (1983). Many actor-critic algorithms, like those discussed by Peters et al. (2008), use on-policy policy gradient formulations for actor updates, and some incorporate entropy as a regularizer, as seen in works like Schulman et al.'s "Proximal Policy Optimization Algorithms" (2017).</li>
+ <li> Off-Policy Training: The challenges of on-policy training in large-scale reinforcement learning problems are discussed, and the paper references efforts to enhance sample efficiency through off-policy samples and higher-order variance reduction techniques. Lillicrap et al.'s "Continuous Control with Deep Reinforcement Learning" (2015) is mentioned as an example, highlighting challenges with its stability and sensitivity to hyperparameter settings.</li>
+ <li> Maximum Entropy Reinforcement Learning: The paper introduces the concept of maximum entropy reinforcement learning, citing applications in inverse reinforcement learning (Ziebart et al., "Maximum Entropy Inverse Reinforcement Learning" - 2008) and optimal control (Todorov - 2008; Toussaint - 2009; Rawlik et al. - 2012). The idea of using maximum entropy to guide policy learning in guided policy search (Levine et al. - 2013, 2016) is also discussed.</li>
+ <li> Connection between Q-learning and Policy Gradient Methods: The authors highlight recent papers that explore the connection between Q-learning and policy gradient methods in the context of maximum entropy learning. Works by O'Donoghue et al. ("The PGQ Algorithm" - 2016), Haarnoja et al. ("Reinforcement Learning with Deep Energy-Based Policies" - 2017), Nachum et al. ("Bridging the Gap Between Value and Policy Based Reinforcement Learning" - 2017), and Schulman et al. ("Equivalence Between Policy Gradients and Soft Q-Learning" - 2017) are referenced.</li>
+ <li> Comparison with Prior Maximum Entropy Methods: The section notes that prior maximum entropy methods, such as those approximating the maximum entropy distribution with a Gaussian (Nachum et al. - 2017) or using a sampling network (Haarnoja et al. - 2017), generally do not outperform state-of-the-art off-policy algorithms like DDPG. The authors emphasize that their proposed Soft Actor-Critic algorithm surpasses the performance of prior off-policy methods in terms of both efficiency and final results.</li>
+</ol>
+<p>
 In summary, the related work section provides a comprehensive overview of key concepts and references in the field of reinforcement learning, contextualizing the Soft Actor-Critic algorithm within the existing literature.
+</p>
 
-
-### Biography
-
-1. Tuomas Haarnoja
-2. Aurick Zhou
-3. Pieter Abbeel
-4. Sergey Levine
+<h3>Biography</h3>
+<p></p>
+<ol>
+  <li>Tuomas Haarnoja</li>
+  <li>Aurick Zhou</li>
+  <li>Pieter Abbeel</li>
+  <li>Sergey Levine</li>
+</ol> 
 
   
-### Methodology  
-
-#### Maximum Entropy RL
-In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
-
+<h3>Methodology</h3>  
+<h4>Maximum Entropy RL</h4>
+<p> In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
+</p>
 
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/max_ent_rl_3.gif" width="50%" height="50%"/>
@@ -110,9 +109,10 @@ $$
 V^\pi(s) = \underset{a \sim \pi}{\mathbb{E}}[Q^\pi(s,a)] + \alpha H(\pi(\cdot|s))
 $$
 
-### SAC
-
+<h4>SAC</h4>
+<p>
 In SAC, we have,
+<p>
 
 - a single policy network, $ \pi_{\theta} $
 - two Q networks $Q_{w_{1}} \; , \; Q_{w_{2}}$
@@ -148,8 +148,7 @@ $$
 \underset{\theta}{\max} \underset{\epsilon \sim\mathcal{N}}{\underset{s\sim \mathcal{D}}{\mathbb{E}}} [\; (\; \underset{i=1,2}{\min} Q_{w_{i}}(s,a_{\theta}(s,\epsilon)) - \alpha \log \pi_{\theta}(a_{\theta}(s,\epsilon)|s) \;]
 $$
 
-### Algorithm
-
+<h4>Algorithm</h4>
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_algo.png" width="85%"/>
 </p>
@@ -161,79 +160,102 @@ $$
 
 where $\widetilde{H}$ is the entropy target. Typically, $\widetilde{H}$ is set to be equal to the negative of the action space dimension i. e. $\widetilde{H} = - \; \text{dim}(\mathcal{A})$.
 
-### Implementation
-
+<h4>Implementation</h4>
+<p>
 You can find my Pytorch implementation of SAC for continuous action spaces at <a href="https://github.com/adi3e08/SAC" target="_blank">https://github.com/adi3e08/SAC</a>.
+</p>
 
-### Results
-
+<h4>Results</h4>
+<p>
 I trained SAC on a few continuous control tasks from <a href="https://github.com/deepmind/dm_control/tree/master/dm_control/suite" target="_blank">Deepmind Control Suite</a>. Results are below.
+</p>
 
-
-Cartpole Swingup : Swing up and balance an unactuated pole by applying forces to a cart at its base.
+* Cartpole Swingup : Swing up and balance an unactuated pole by applying forces to a cart at its base.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cartpole_swingup.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cartpole_swingup.gif" width="31%"/>
 </p>
 
-Reacher Hard : Control a two-link robotic arm to reach a random target location.
+* Reacher Hard : Control a two-link robotic arm to reach a random target location.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_reacher_hard.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_reacher_hard.gif" width="31%"/>
 </p>
 
-Cheetah Run : Control a planar biped to run.
+* Cheetah Run : Control a planar biped to run.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cheetah_run.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cheetah_run.gif" width="31%"/>
 </p>
 
-Walker Run : Control a planar biped to run.
+* Walker Run : Control a planar biped to run.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_walker_run.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_walker_run.gif" width="31%"/>
 </p>
 
-Humanoid Walk : Control a simplified humanoid to walk.
+* Humanoid Walk : Control a simplified humanoid to walk.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_humanoid_walk.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_humanoid_walk.gif" width="31%"/>
 </p>
 
-### Social Impact
-
+<h3>Social Impact</h3>
+<p>
 The social impact of a research paper can be diverse and may not always be immediately apparent. In the case of the Soft Actor-Critic paper, its contributions to off-policy reinforcement learning, stability, and efficiency improvements could have positive implications for various fields. Applications in robotics, autonomous systems, and AI-driven decision-making could potentially impact industries and technologies that rely on reinforcement learning algorithms.
-
+</p>
   
-### Industry Applications
-
+<h3>Industry Applications</h3>
+<p>
 The industry applications of the Soft Actor-Critic algorithm could be broad, especially in areas where efficient and stable reinforcement learning is crucial. Some potential applications include robotics for tasks like autonomous navigation, industrial automation, game playing, and any domain where complex decision-making under uncertainty is required. The off-policy formulation and scalability of the algorithm may make it particularly attractive for real-world applications.
+</p>
+  
+<h3>Follow-on Research</h3>
+<p>
+Given that the paper introduces a novel algorithm, there could be several directions for follow-on research. Researchers may explore further improvements to the Soft Actor-Critic algorithm, extensions to different problem domains, or adaptations for specific applications. Additionally, efforts may focus on understanding the algorithm's limitations and addressing challenges that arise in specific scenarios.
+</p>
+
+<h3>Peer Review</h3>
+<p>Title: Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
+</p>
+<ul>
+<li>
+  Strengths: The paper introduces a novel algorithm, Soft Actor-Critic, that combines off-policy actor-critic training with a stochastic actor, addressing challenges faced by previous methods.
+    The empirical results demonstrate superior performance in terms of both efficiency and final performance compared to state-of-the-art off-policy deep reinforcement learning methods.
+</li>
+
+<li>
+Concerns: While the paper provides a comprehensive overview of related works, further discussion on the limitations and potential challenges of the proposed algorithm could enhance the clarity for readers.
+</li>
+
+<li>
+Suggestions: Consider providing more insights into the algorithm's behavior in specific scenarios or environments to give practitioners a better understanding of its strengths and limitations.
+    Including comparisons with a wider range of baseline algorithms could strengthen the paper's contributions.
+</li>
+  
+<li>
+  Overall Assessment:The Soft Actor-Critic paper presents a significant contribution to the field of reinforcement learning, offering a promising solution to challenges faced by existing off-policy methods. The empirical results support the claims, and the clarity of presentation makes it accessible to a broad audience. Addressing minor concerns and expanding on certain points would further strengthen the paper.
+</li>
+  
+</ul>
 
   
-### Follow-on Research
+<h3>References</h3>
 
-Given that the paper introduces a novel algorithm, there could be several directions for follow-on research. Researchers may explore further improvements to the Soft Actor-Critic algorithm, extensions to different problem domains, or adaptations for specific applications. Additionally, efforts may focus on understanding the algorithm's limitations and addressing challenges that arise in specific scenarios.
-
-
-### Peer Review
-
-Title: Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
-
-- Strengths: The paper introduces a novel algorithm, Soft Actor-Critic, that combines off-policy actor-critic training with a stochastic actor, addressing challenges faced by previous methods. The empirical results demonstrate superior performance in terms of both efficiency and final performance compared to state-of-the-art off-policy deep reinforcement learning methods.
-- Concerns: While the paper provides a comprehensive overview of related works, further discussion on the limitations and potential challenges of the proposed algorithm could enhance the clarity for readers.
-- Suggestions: Consider providing more insights into the algorithm's behavior in specific scenarios or environments to give practitioners a better understanding of its strengths and limitations. Including comparisons with a wider range of baseline algorithms could strengthen the paper's contributions.
-- Overall Assessment:The Soft Actor-Critic paper presents a significant contribution to the field of reinforcement learning, offering a promising solution to challenges faced by existing off-policy methods. The empirical results support the claims, and the clarity of presentation makes it accessible to a broad audience. Addressing minor concerns and expanding on certain points would further strengthen the paper.
-
-### References
-
-<a name="haarnoja-2018">[1]</a> <a href="https://arxiv.org/abs/1801.01290"
+<p><a name="haarnoja-2018">[1]</a> <a href="https://arxiv.org/abs/1801.01290"
   >Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, and Sergey Levine.
   <em>Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor.</em></a>
   In International conference on machine learning, pages 1861–1870. PMLR, 2018a. 
+</p>
 
 <h2>Team Members</h2>
                                                    
-Adithya Ramesh.
+<p>Adithya Ramesh.</p>
+
+  
+</div><!--col-->
+</div><!--row -->
+</div> <!-- container -->
 
 <footer class="nd-pagefooter">
   <div class="row">
