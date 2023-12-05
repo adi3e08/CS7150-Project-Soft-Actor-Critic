@@ -52,8 +52,6 @@
 <div class="col">
 
 <!-- <h2>Literature Review; Biography; Social Impact; Industry Applications; Follow-on Research; and Peer-Review</h2> -->
-  
-<h2>Analysis</h2>
 
 <h3>Related Work</h3>
 <p>The related work section of the paper "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" by Haarnoja et al. discusses several key themes in reinforcement learning literature:
@@ -79,8 +77,9 @@ In summary, the related work section provides a comprehensive overview of key co
 </p>
   
 <h3>Methodology</h4>  
+<p> 
 <h4>Maximum Entropy RL</h4>
-<p> In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
+In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
 </p>
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/max_ent_rl_3.gif" width="50%" height="50%"/>
@@ -117,7 +116,6 @@ In SAC, we have,
 - a single policy network, $ \pi_{\theta} $
 - two Q networks $Q_{w_{1}} \; , \; Q_{w_{2}}$
 - two target Q networks $Q_{w_{1}^{'}} \; , \; Q_{w_{2}^{'}}$
-
 
 We train both Q-functions to regress a single shared target y, which is computed using target Q-networks and makes use of the clipped double-Q trick.
 $$
