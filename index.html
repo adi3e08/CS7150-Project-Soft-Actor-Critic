@@ -54,8 +54,8 @@
 <!-- <h2>Literature Review; Biography; Social Impact; Industry Applications; Follow-on Research; and Peer-Review</h2> -->
 
 <h3>Related Work</h3>
-<p>The related work section of the paper "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" by Haarnoja et al. discusses several key themes in reinforcement learning literature:
-</p>
+The related work section of the paper "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" by Haarnoja et al. discusses several key themes in reinforcement learning literature:
+
 <ol>
  <li> Actor-Critic Frameworks: The section reviews the derivation of actor-critic algorithms from policy iteration, referencing foundational works such as Barto and Sutton's "Neuronlike Adaptive Elements That Can Solve Difficult Learning Control Problems" (1983). Many actor-critic algorithms, like those discussed by Peters et al. (2008), use on-policy policy gradient formulations for actor updates, and some incorporate entropy as a regularizer, as seen in works like Schulman et al.'s "Proximal Policy Optimization Algorithms" (2017).</li>
  <li> Off-Policy Training: The challenges of on-policy training in large-scale reinforcement learning problems are discussed, and the paper references efforts to enhance sample efficiency through off-policy samples and higher-order variance reduction techniques. Lillicrap et al.'s "Continuous Control with Deep Reinforcement Learning" (2015) is mentioned as an example, highlighting challenges with its stability and sensitivity to hyperparameter settings.</li>
@@ -63,12 +63,12 @@
  <li> Connection between Q-learning and Policy Gradient Methods: The authors highlight recent papers that explore the connection between Q-learning and policy gradient methods in the context of maximum entropy learning. Works by O'Donoghue et al. ("The PGQ Algorithm" - 2016), Haarnoja et al. ("Reinforcement Learning with Deep Energy-Based Policies" - 2017), Nachum et al. ("Bridging the Gap Between Value and Policy Based Reinforcement Learning" - 2017), and Schulman et al. ("Equivalence Between Policy Gradients and Soft Q-Learning" - 2017) are referenced.</li>
  <li> Comparison with Prior Maximum Entropy Methods: The section notes that prior maximum entropy methods, such as those approximating the maximum entropy distribution with a Gaussian (Nachum et al. - 2017) or using a sampling network (Haarnoja et al. - 2017), generally do not outperform state-of-the-art off-policy algorithms like DDPG. The authors emphasize that their proposed Soft Actor-Critic algorithm surpasses the performance of prior off-policy methods in terms of both efficiency and final results.</li>
 </ol>
-<p>
+
 In summary, the related work section provides a comprehensive overview of key concepts and references in the field of reinforcement learning, contextualizing the Soft Actor-Critic algorithm within the existing literature.
-</p>
+
 
 <h3>Biography</h3>
-<p></p>
+
 <ol>
   <li>Tuomas Haarnoja</li>
   <li>Aurick Zhou</li>
@@ -79,8 +79,8 @@ In summary, the related work section provides a comprehensive overview of key co
   
 <h3>Methodology</h4>  
 <h4>Maximum Entropy RL</h4>
-<p> In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
-</p>
+In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
+
 
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/max_ent_rl_3.gif" width="50%" height="50%"/>
@@ -110,9 +110,8 @@ V^\pi(s) = \underset{a \sim \pi}{\mathbb{E}}[Q^\pi(s,a)] + \alpha H(\pi(\cdot|s)
 $$
 
 <h4>SAC</h4>
-<p>
 In SAC, we have,
-<p>
+
 
 - a single policy network, $ \pi_{\theta} $
 - two Q networks $Q_{w_{1}} \; , \; Q_{w_{2}}$
