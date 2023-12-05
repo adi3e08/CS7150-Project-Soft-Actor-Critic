@@ -45,7 +45,7 @@
 <div class="row">
 <div class="col justify-content-center text-center">
 <h2>An Analysis of Soft Actor-Critic</h2>
-<p> Soft Actor-Critic (SAC) [[1]](#1) [[2]](#2) is a state-of-the-art model-free RL algorithm for continuous action spaces. It adopts an off-policy actor-critic approach and uses stochastic policies. It uses the maximum entropy formulation to achieve better exploration. </p>
+<p> Soft Actor-Critic (SAC) [1] is a state-of-the-art model-free RL algorithm for continuous action spaces. It adopts an off-policy actor-critic approach and uses stochastic policies. It uses the maximum entropy formulation to achieve better exploration. </p>
 </div>
 </div>
 <div class="row">
@@ -53,8 +53,7 @@
 
 <!-- <h2>Literature Review; Biography; Social Impact; Industry Applications; Follow-on Research; and Peer-Review</h2> -->
 <h2>Analysis</h2>
-
-## Maximum Entropy RL
+<h3>Maximum Entropy RL</h3>
 In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/max_ent_rl_3.gif" width="50%" height="50%"/>
@@ -83,7 +82,7 @@ $$
 V^\pi(s) = \underset{a \sim \pi}{\mathbb{E}}[Q^\pi(s,a)] + \alpha H(\pi(\cdot|s))
 $$
 
-## SAC
+<h3>SAC</h3>
 In SAC, we have,
 - a single policy network, $ \pi_{\theta} $
 - two Q networks $Q_{w_{1}} \; , \; Q_{w_{2}}$
@@ -119,7 +118,7 @@ $$
 \underset{\theta}{\max} \underset{\epsilon \sim\mathcal{N}}{\underset{s\sim \mathcal{D}}{\mathbb{E}}} [\; (\; \underset{i=1,2}{\min} Q_{w_{i}}(s,a_{\theta}(s,\epsilon)) - \alpha \log \pi_{\theta}(a_{\theta}(s,\epsilon)|s) \;]
 $$
 
-## Algorithm
+<h3>Algorithm</h3>
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_algo.png" width="85%"/>
 </p>
@@ -131,10 +130,10 @@ $$
 
 where $\widetilde{H}$ is the entropy target. Typically, $\widetilde{H}$ is set to be equal to the negative of the action space dimension i. e. $\widetilde{H} = - \; \text{dim}(\mathcal{A})$.
 
-## Implementation
+<h3>Implementation</h3>
 You can find my Pytorch implementation of SAC for continuous action spaces [here](https://github.com/adi3e08/SAC){:target="_blank"}. 
 
-## Results
+<h3>Results</h3>
 I trained SAC on a few continuous control tasks from [Deepmind Control Suite](https://github.com/deepmind/dm_control/tree/master/dm_control/suite). Results are below.
 
 * Cartpole Swingup : Swing up and balance an unactuated pole by applying forces to a cart at its base.
