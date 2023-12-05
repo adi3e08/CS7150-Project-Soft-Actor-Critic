@@ -82,7 +82,7 @@ In summary, the related work section provides a comprehensive overview of key co
 <h4>Maximum Entropy RL</h4>
 <p> In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
 </p>
-
+<br>
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/max_ent_rl_3.gif" width="50%" height="50%"/>
 <br>
@@ -115,9 +115,11 @@ $$
 In SAC, we have,
 <p>
 
-- a single policy network, $ \pi_{\theta} $
-- two Q networks $Q_{w_{1}} \; , \; Q_{w_{2}}$
-- two target Q networks $Q_{w_{1}^{'}} \; , \; Q_{w_{2}^{'}}$
+<ul>
+<li> a single policy network, $ \pi_{\theta} </li>
+<li> two Q networks $Q_{w_{1}} \; , \; Q_{w_{2}}</li>
+<li> two target Q networks $Q_{w_{1}^{'}} \; , \; Q_{w_{2}^{'}}</li>
+</ul>
 
 We train both Q-functions to regress a single shared target y, which is computed using target Q-networks and makes use of the clipped double-Q trick.
 $$
@@ -160,6 +162,7 @@ L(\alpha) = \alpha \; (-\log\pi(a|s)-\widetilde{H})
 $$ 
 
 where $\widetilde{H}$ is the entropy target. Typically, $\widetilde{H}$ is set to be equal to the negative of the action space dimension i. e. $\widetilde{H} = - \; \text{dim}(\mathcal{A})$.
+<br>
 
 <h4>Implementation</h4>
 <p>
