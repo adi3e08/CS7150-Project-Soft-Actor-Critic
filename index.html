@@ -45,7 +45,7 @@
 <div class="row">
 <div class="col justify-content-center text-center">
 <h2>An Analysis of Soft Actor-Critic</h2>
-<p> Soft Actor-Critic (SAC) [1] is a state-of-the-art model-free RL algorithm for continuous action spaces. It adopts an off-policy actor-critic approach and uses stochastic policies. It uses the maximum entropy formulation to achieve better exploration. </p>
+Soft Actor-Critic (SAC) [1] is a state-of-the-art model-free RL algorithm for continuous action spaces. It adopts an off-policy actor-critic approach and uses stochastic policies. It uses the maximum entropy formulation to achieve better exploration.
 </div>
 </div>
 <div class="row">
@@ -54,6 +54,7 @@
 <!-- <h2>Literature Review; Biography; Social Impact; Industry Applications; Follow-on Research; and Peer-Review</h2> -->
 
 <h3>Related Work</h3>
+
 The related work section of the paper "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor" by Haarnoja et al. discusses several key themes in reinforcement learning literature:
 
 <ol>
@@ -78,6 +79,7 @@ In summary, the related work section provides a comprehensive overview of key co
 
   
 <h3>Methodology</h4>  
+
 <h4>Maximum Entropy RL</h4>
 In maximum entropy RL, the objective is to maximize the expected return while acting as randomly as possible. By doing so, the agent can explore better and capture different modes of optimality. This also improves robustness against environmental changes.
 
@@ -110,6 +112,7 @@ V^\pi(s) = \underset{a \sim \pi}{\mathbb{E}}[Q^\pi(s,a)] + \alpha H(\pi(\cdot|s)
 $$
 
 <h4>SAC</h4>
+
 In SAC, we have,
 
 
@@ -148,6 +151,7 @@ $$
 $$
 
 <h4>Algorithm</h4>
+
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_algo.png" width="85%"/>
 </p>
@@ -160,63 +164,62 @@ $$
 where $\widetilde{H}$ is the entropy target. Typically, $\widetilde{H}$ is set to be equal to the negative of the action space dimension i. e. $\widetilde{H} = - \; \text{dim}(\mathcal{A})$.
 
 <h4>Implementation</h4>
-<p>
+
 You can find my Pytorch implementation of SAC for continuous action spaces at <a href="https://github.com/adi3e08/SAC" target="_blank">https://github.com/adi3e08/SAC</a>.
-</p>
 
 <h4>Results</h4>
-<p>
-I trained SAC on a few continuous control tasks from <a href="https://github.com/deepmind/dm_control/tree/master/dm_control/suite" target="_blank">Deepmind Control Suite</a>. Results are below.
-</p>
 
-* Cartpole Swingup : Swing up and balance an unactuated pole by applying forces to a cart at its base.
+I trained SAC on a few continuous control tasks from <a href="https://github.com/deepmind/dm_control/tree/master/dm_control/suite" target="_blank">Deepmind Control Suite</a>. Results are below.
+
+
+Cartpole Swingup : Swing up and balance an unactuated pole by applying forces to a cart at its base.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cartpole_swingup.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cartpole_swingup.gif" width="31%"/>
 </p>
 
-* Reacher Hard : Control a two-link robotic arm to reach a random target location.
+Reacher Hard : Control a two-link robotic arm to reach a random target location.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_reacher_hard.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_reacher_hard.gif" width="31%"/>
 </p>
 
-* Cheetah Run : Control a planar biped to run.
+Cheetah Run : Control a planar biped to run.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cheetah_run.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_cheetah_run.gif" width="31%"/>
 </p>
 
-* Walker Run : Control a planar biped to run.
+Walker Run : Control a planar biped to run.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_walker_run.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_walker_run.gif" width="31%"/>
 </p>
 
-* Humanoid Walk : Control a simplified humanoid to walk.
+Humanoid Walk : Control a simplified humanoid to walk.
 <p align="center">
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_humanoid_walk.png" width="40%"/>
 <img src="https://adi3e08.github.io/files/blog/soft-actor-critic/imgs/sac_humanoid_walk.gif" width="31%"/>
 </p>
 
 <h3>Social Impact</h3>
-<p>
+
 The social impact of a research paper can be diverse and may not always be immediately apparent. In the case of the Soft Actor-Critic paper, its contributions to off-policy reinforcement learning, stability, and efficiency improvements could have positive implications for various fields. Applications in robotics, autonomous systems, and AI-driven decision-making could potentially impact industries and technologies that rely on reinforcement learning algorithms.
-</p>
+
   
 <h3>Industry Applications</h3>
-<p>
+
 The industry applications of the Soft Actor-Critic algorithm could be broad, especially in areas where efficient and stable reinforcement learning is crucial. Some potential applications include robotics for tasks like autonomous navigation, industrial automation, game playing, and any domain where complex decision-making under uncertainty is required. The off-policy formulation and scalability of the algorithm may make it particularly attractive for real-world applications.
-</p>
+
   
 <h3>Follow-on Research</h3>
-<p>
+
 Given that the paper introduces a novel algorithm, there could be several directions for follow-on research. Researchers may explore further improvements to the Soft Actor-Critic algorithm, extensions to different problem domains, or adaptations for specific applications. Additionally, efforts may focus on understanding the algorithm's limitations and addressing challenges that arise in specific scenarios.
-</p>
+
 
 <h3>Peer Review</h3>
-<p>Title: Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
-</p>
+Title: Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor
+
 <ul>
 <li>
   Strengths: The paper introduces a novel algorithm, Soft Actor-Critic, that combines off-policy actor-critic training with a stochastic actor, addressing challenges faced by previous methods.
@@ -241,15 +244,14 @@ Suggestions: Consider providing more insights into the algorithm's behavior in s
   
 <h3>References</h3>
 
-<p><a name="haarnoja-2018">[1]</a> <a href="https://arxiv.org/abs/1801.01290"
+<a name="haarnoja-2018">[1]</a> <a href="https://arxiv.org/abs/1801.01290"
   >Tuomas Haarnoja, Aurick Zhou, Pieter Abbeel, and Sergey Levine.
   <em>Soft actor-critic: Off-policy maximum entropy deep reinforcement learning with a stochastic actor.</em></a>
   In International conference on machine learning, pages 1861–1870. PMLR, 2018a. 
-</p>
 
 <h2>Team Members</h2>
                                                    
-<p>Adithya Ramesh.</p>
+Adithya Ramesh.
 
   
 </div><!--col-->
